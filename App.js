@@ -14,12 +14,12 @@ import Icon from 'react-native-vector-icons/Entypo';
 const DATA = [
   {
     id: 1,
-    name: "TAHIL, ADRIAN JANE",
+    name: "TAHIL, JANE",
     place: "Thailand, Bangkok"
 },
 {
     id: 2,
-    name: "PAGUICAN, NICOLE JAMES",
+    name: "PAGUICAN, NICOLE",
     place: "Korea, Seoul"
 },
 {
@@ -49,7 +49,7 @@ const DATA = [
 },
 {
     id: 3,
-    name: "SARABIA, EARL MIKE",
+    name: "SARABIA, EARL ",
     place: "Taiwan"
 },
 {
@@ -59,7 +59,7 @@ const DATA = [
 },
 {
     id: 3,
-    name: "FELISILDA, ARNOLD JAMES",
+    name: "FELISILDA, JAMES",
     place: "Spain"
 },
 {
@@ -74,30 +74,30 @@ const DATA = [
 },
 {
     id: 3,
-    name: "BONGCARAS, AIREEN MAE",
+    name: "BONGCARAS, AIREEN",
     place: "United States of America"
 },
 {
     id: 3,
-    name: "TINAJA, MA. LUISA",
+    name: "TINAJA, LUISA",
     place: "Taiwan"
 },
 {
     id: 3,
-    name: "ORING, JEA NORENE",
+    name: "ORING, JEA ",
     place: "Cambodia"
 },
 ];
-
 const getReciprocatedInitials = (name) => {
   const nameParts = name.split(' ');
-  const initials = nameParts.map((part) => part.charAt(0)).join('');
-  return initials.split('').reverse().join('').toUpperCase();
+  const reversedInitials = nameParts.map((part) => part.charAt(0)).reverse().join('').toUpperCase();
+  return reversedInitials;
 };
+
 
 const Item = ({item, onPress, backgroundColor, textColor}) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, {backgroundColor}]}>
-    <UserAvatar size={50} name={item.name} style={{ backgroundColor: '#0000FF' }}  />
+    <UserAvatar size={50}name={getReciprocatedInitials(item.name)}style={{ backgroundColor: '#0000FF' }}  />
     <Text style={[styles.title, {color: textColor}]}>{item.name}{'\n'}<Text style={{fontWeight:200}}>{item.place}</Text></Text>
     <Icon style={{ marginRight: 10, position: 'absolute', marginLeft: 350}} name="dots-three-horizontal" size={30} color="#000" />
   </TouchableOpacity>
